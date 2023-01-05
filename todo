@@ -1,0 +1,106 @@
+Wildmobs Gregification
+
+<ore:foodVensionraw>.add(<wildmobsmod:venison>);
+<ore:listAllvensionraw>.add(<wildmobsmod:venison>);
+<ore:foodVensioncooked>.add(<wildmobsmod:cooked_venison>);
+<ore:listAllvensioncooked>.add(<wildmobsmod:cooked_venison>);
+
+<ore:foodCalamariraw>.add(<wildmobsmod:calamari>);
+<ore:listAllcalamariraw>.add(<wildmobsmod:calamari>);
+<ore:foodCalamaricooked>.add(<wildmobsmod:cooked_calamari>);
+<ore:listAllcalamaricooked>.add(<wildmobsmod:cooked_calamari>);
+
+<ore:listAllmeatraw>.add(<wildmobsmod:bison_meat>);
+<ore:listAllmeatraw>.add(<wildmobsmod:calamari>);
+<ore:listAllmeatraw>.add(<wildmobsmod:chevon>);
+<ore:listAllmeatraw>.add(<wildmobsmod:goose>);
+<ore:listAllmeatraw>.add(<wildmobsmod:mouse>);
+<ore:listAllmeatraw>.add(<wildmobsmod:venison>);
+
+<ore:listAllmeatcooked>.add(<wildmobsmod:cooked_bison_meat>);
+<ore:listAllmeatcooked>.add(<wildmobsmod:cooked_calamari>);
+<ore:listAllmeatcooked>.add(<wildmobsmod:cooked_chevon>);
+<ore:listAllmeatcooked>.add(<wildmobsmod:cooked_goose>);
+<ore:listAllmeatcooked>.add(<wildmobsmod:cooked_mouse>);
+<ore:listAllmeatcooked>.add(<wildmobsmod:cooked_venison>);
+
+// Mob Drops
+
+// com.wildmobsmod.entity.monster.dreath.EntityDreath -- Dreath
+// com.wildmobsmod.entity.monster.dreath.mired.EntityMired -- Mired
+// com.wildmobsmod.entity.monster.dreath.mired.EntityMiredSummoner -- MiredSummoner
+// com.wildmobsmod.entity.monster.faded.EntityFaded -- Faded
+// com.wildmobsmod.entity.monster.magmaplant.EntityMagmaPlant -- MagmaPlant
+// com.wildmobsmod.entity.monster.seascorpion.EntitySeaScorpion -- SeaScorpion
+// com.wildmobsmod.entity.monster.skeletonwolf.EntitySkeletonWolf -- SkeletonWolf
+// com.wildmobsmod.entity.monster.tarantula.EntityTarantula -- Tarantula
+// com.wildmobsmod.entity.monster.zomgus.EntityZomgus -- Zomgus
+// com.wildmobsmod.entity.passive.armadillo.EntityArmadillo -- Armadillo
+// com.wildmobsmod.entity.passive.bison.EntityBison -- Bison
+// com.wildmobsmod.entity.passive.butterfly.EntityButterfly -- Butterfly
+// com.wildmobsmod.entity.passive.cheetah.EntityCheetah -- Cheetah
+// com.wildmobsmod.entity.passive.cougar.EntityCougar -- Cougar
+// com.wildmobsmod.entity.passive.deer.EntityDeer -- Deer
+// com.wildmobsmod.entity.passive.direwolf.EntityDireWolf -- DireWolf
+// com.wildmobsmod.entity.passive.dragonfly.EntityDragonfly -- Dragonfly
+// com.wildmobsmod.entity.passive.fox.EntityFox -- Fox
+// com.wildmobsmod.entity.passive.goat.EntityGoat -- Goat
+// com.wildmobsmod.entity.passive.goose.EntityGoose -- Goose
+// com.wildmobsmod.entity.passive.hyena.EntityHyena -- Hyena
+// com.wildmobsmod.entity.passive.jellyfish.EntityJellyfish -- Jellyfish
+// com.wildmobsmod.entity.passive.mouse.EntityMouse -- Mouse
+// com.wildmobsmod.entity.passive.ocelot.EntityWMOcelot -- WMOcelot
+// com.wildmobsmod.entity.projectile.lavaspit.EntityLavaSpit -- LavaSpit
+// com.wildmobsmod.entity.projectile.seascorpionegg.EntitySeaScorpionEgg -- SeaScorpionEgg
+
+game.getEntity("Dreath"); // drops mired bottle
+game.getEntity("Mired"); // summon with mired bottle
+game.getEntity("MiredSummoner");
+game.getEntity("Faded"); // a zombie with axe
+game.getEntity("MagmaPlant");
+game.getEntity("SeaScorpion").addDrop(<harvestcraft:crayfishrawItem>,1,2);
+game.getEntity("SkeletonWolf");
+game.getEntity("Tarantula"); // spider that shots arrows
+game.getEntity("Zomgus").addDrop(<minecraft:mushroom_stew>,0,1); // mushroom zombie
+game.getEntity("Armadillo").addDrop(<gregtech:gt.multiitem.food:1998>,1,1);
+game.getEntity("Bison").addDrop(<gregtech:gt.multiitem.food:1998>,1,1);
+game.getEntity("Bison").addDrop(<gregtech:gt.multiitem.food:1200>,1,2);
+game.getEntity("Bison").addDrop(<gregtech:gt.multiitem.food:1210>,1,2);
+game.getEntity("Butterfly");
+game.getEntity("Cheetah").addDrop(<gregtech:gt.multiitem.food:1998>,1,1); // scrap meat
+game.getEntity("Cheetah").addDrop(<gregtech:gt.multiitem.food:1200>,1,2); // ribs
+game.getEntity("Cheetah").addDrop(<gregtech:gt.multiitem.food:1300>,2,3); // dog meat
+game.getEntity("Cheetah").addDrop(<gregtech:gt.multiitem.food:1210>,1,2); // steak rib eye
+game.getEntity("Cougar").addDrop(<gregtech:gt.multiitem.food:1998>,1,1); // scrap meat
+game.getEntity("Cougar").addDrop(<gregtech:gt.multiitem.food:1200>,1,2); // ribs
+game.getEntity("Cougar").addDrop(<gregtech:gt.multiitem.food:1300>,2,3); // dog meat
+game.getEntity("Cougar").addDrop(<gregtech:gt.multiitem.food:1210>,1,2); // steak rib eye
+game.getEntity("Deer").addDrop(<gregtech:gt.multiitem.food:1998>,1,1);
+game.getEntity("Deer").addDrop(<gregtech:gt.multiitem.food:1200>,1,2);
+game.getEntity("Deer").addDrop(<gregtech:gt.multiitem.food:1210>,1,2);
+game.getEntity("Deer").addDrop(<harvestcraft:venisonrawItem>,1,3);
+game.getEntity("DireWolf").addDrop(<gregtech:gt.multiitem.food:1998>,1,1); // scrap meat
+game.getEntity("DireWolf").addDrop(<gregtech:gt.multiitem.food:1200>,1,2); // ribs
+game.getEntity("DireWolf").addDrop(<gregtech:gt.multiitem.food:1300>,2,5); // dog meat
+game.getEntity("DireWolf").addDrop(<gregtech:gt.multiitem.food:1210>,1,2); // steak rib eye
+game.getEntity("Dragonfly");
+game.getEntity("Fox").addDrop(<gregtech:gt.multiitem.food:1998>,0,1); // scrap meat
+game.getEntity("Fox").addDrop(<gregtech:gt.multiitem.food:1200>,0,1); // ribs
+game.getEntity("Fox").addDrop(<gregtech:gt.multiitem.food:1300>,1,2); // dog meat
+game.getEntity("Fox").addDrop(<gregtech:gt.multiitem.food:1210>,0,1); // steak rib eye
+game.getEntity("Goat").addDrop(<gregtech:gt.multiitem.food:1400>,1,2);
+game.getEntity("Goat").addDrop(<gregtech:gt.multiitem.food:1200>,1,2);
+game.getEntity("Goose").addDrop(<harvestcraft:turkeyrawItem>,2,4);
+game.getEntity("Hyena").addDrop(<gregtech:gt.multiitem.food:1998>,2,3); // scrap meat
+game.getEntity("Hyena").addDrop(<gregtech:gt.multiitem.food:1200>,1,1); // ribs
+game.getEntity("Hyena").addDrop(<gregtech:gt.multiitem.food:1300>,1,2); // dog meat
+game.getEntity("Hyena").addDrop(<gregtech:gt.multiitem.food:1210>,0,1); // steak rib eye
+game.getEntity("Jellyfish").addDrop(<harvestcraft:jellyfishrawItem>,1,1);
+game.getEntity("Mouse").addDrop(<gregtech:gt.multiitem.food:1998>,0,1); // scrap meat
+game.getEntity("WMOcelot").addDrop(<gregtech:gt.multiitem.food:1998>,0,1); // scrap meat
+game.getEntity("WMOcelot").addDrop(<gregtech:gt.multiitem.food:1200>,0,1); // ribs
+game.getEntity("WMOcelot").addDrop(<gregtech:gt.multiitem.food:1300>,1,2); // dog meat
+game.getEntity("WMOcelot").addDrop(<gregtech:gt.multiitem.food:1210>,0,1); // steak rib eye
+game.getEntity("LavaSpit");
+game.getEntity("SeaScorpionEgg");
+game.getEntity("TarantulaHair");
