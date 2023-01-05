@@ -1,0 +1,16 @@
+[
+{
+  "modid": "biotech6",
+  "name": "BioTech6",
+  "description": "A mod for my modpack biotech 6.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["BioDude"],
+  "credits": "greg and stuff",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
