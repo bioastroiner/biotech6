@@ -9,4 +9,6 @@ public class Tags {
     public static final String MODNAME = "Bio Technology 6";
     public static final String VERSION = "GRADLETOKEN_VERSION";
     public static final String GROUPNAME = "biotech";
+    public static final String CLIENTSIDE = "biotech.ProxyClient";
+    public static final String SERVERSIDE = "biotech.ProxyServer";
 }
