@@ -1,14 +1,14 @@
 [
 {
-  "modid": "biotech6",
-  "name": "BioTech6",
+  "modid": "${modId}",
+  "name": "${modName}",
   "description": "A mod for my modpack biotech 6.",
-  "version": "${version}",
-  "mcversion": "${mcversion}",
-  "url": "",
+  "version": "${modVersion}",
+  "mcversion": "${minecraftVersion}",
+  "url": "https://github.com/bioastroiner/biotech6",
   "updateUrl": "",
   "authorList": ["BioDude"],
-  "credits": "greg and stuff",
+  "credits": "greg and overmind",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []
