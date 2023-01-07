@@ -1,25 +1,9 @@
-Wildmobs Gregification
 
-<ore:foodVensionraw>.add(<wildmobsmod:venison>);
-<ore:listAllvensionraw>.add(<wildmobsmod:venison>);
-<ore:foodVensioncooked>.add(<wildmobsmod:cooked_venison>);
-<ore:listAllvensioncooked>.add(<wildmobsmod:cooked_venison>);
 
-<ore:foodCalamariraw>.add(<wildmobsmod:calamari>);
-<ore:listAllcalamariraw>.add(<wildmobsmod:calamari>);
-<ore:foodCalamaricooked>.add(<wildmobsmod:cooked_calamari>);
-<ore:listAllcalamaricooked>.add(<wildmobsmod:cooked_calamari>);
+Electric Version for every GT machine
+add more tiers for GT machines
+Recipe for Superconductor
+Extra Superconductor recipes for PUV cable and stuff
 
-<ore:listAllmeatraw>.add(<wildmobsmod:bison_meat>);
-<ore:listAllmeatraw>.add(<wildmobsmod:calamari>);
-<ore:listAllmeatraw>.add(<wildmobsmod:chevon>);
-<ore:listAllmeatraw>.add(<wildmobsmod:goose>);
-<ore:listAllmeatraw>.add(<wildmobsmod:mouse>);
-<ore:listAllmeatraw>.add(<wildmobsmod:venison>);
-
-<ore:listAllmeatcooked>.add(<wildmobsmod:cooked_bison_meat>);
-<ore:listAllmeatcooked>.add(<wildmobsmod:cooked_calamari>);
-<ore:listAllmeatcooked>.add(<wildmobsmod:cooked_chevon>);
-<ore:listAllmeatcooked>.add(<wildmobsmod:cooked_goose>);
-<ore:listAllmeatcooked>.add(<wildmobsmod:cooked_mouse>);
-<ore:listAllmeatcooked>.add(<wildmobsmod:cooked_venison>);
+add an Ore Drilling Rig that Drills ores from world
+add a Fluid Drilling Rig that Drills fluids from world/bedrock
