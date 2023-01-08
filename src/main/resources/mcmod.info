@@ -11,6 +11,6 @@
   "credits": "greg and overmind",
   "logoFile": "",
   "screenshots": [],
-  "dependencies": []
+  "dependencies": [gregtech]
 }
 ]
