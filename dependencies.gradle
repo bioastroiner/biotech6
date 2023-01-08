@@ -23,6 +23,9 @@ dependencies {
     compileOnly "openmods:OpenModsLib:1.7.10-0.10:deobf"
     compileOnly "vazkii.botania:Botania:r1.8-250:deobf"
 
+    // We do a little bit of testing
+    //compile "curse.maven:wild-mobs-mod-255711:2727879"
+
     // List of dependencies that GT6 optionally uses
     //compileOnly "appeng:appliedenergistics2:rv3-beta-6:dev"
     //compileOnly "applecore:AppleCore:1.7.10-3.1.1:deobf"

@@ -1,6 +1,5 @@
 package biotech;
 
-import com.wildmobsmod.items.WildMobsModItems;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.*;
@@ -30,11 +29,10 @@ public final class BioTech6Mod extends gregapi.api.Abstract_Mod {
 
     @Mod.Instance
     public static BioTech6Mod INSTANCE;
-
     @SidedProxy(modId = MOD_ID, clientSide = Tags.CLIENTSIDE, serverSide = Tags.SERVERSIDE)
     public static Abstract_Proxy PROXY;
 
-    public BioTech6Mod(){
+    public BioTech6Mod() {
         INSTANCE = this;
     }
 
@@ -116,8 +114,6 @@ public final class BioTech6Mod extends gregapi.api.Abstract_Mod {
 
 
         /************************************************************************************************************************/
-        ItemStack test1 = ST.make(MOD_WM,"venison",1);
-        ItemStack test2 = ST.make(WildMobsModItems.rawVenison,1,W);
 
         CS.FoodsGT.put(ST.make(MOD_WM, "venison", 1), 0, 0, 0, 0, 12);
         CS.FoodsGT.put(ST.make(MOD_WM, "cooked_venison", 1), 0, 0, 0, 10, 12);
@@ -170,12 +166,9 @@ public final class BioTech6Mod extends gregapi.api.Abstract_Mod {
         RM.Mixer.addRecipe1(T, 16, 16, ST.make(MOD_WM, "fur", 1), FL.Water.make(1000), NF, ST.make(Items.leather, 1, W));
         RM.Generifier.addRecipe1(T, 16, 16, ST.make(MOD_WM, "infected_flesh", 1), NF, NF, ST.make(Items.rotten_flesh, 1, W));
 
-        RM.Shredder.addRecipe1(T, 16, 16, ST.make(MOD_WM, "armadillo_shell", 1), OM.dust(MT.Ca, U / 9));
-        RM.Shredder.addRecipe1(T, 16, 16, ST.make(MOD_WM, "thick_bone", 1), OM.dust(MT.Bone, U * 10));
-
         OM.data(ST.make(MOD_WM, "bison_leather", 1), new OreDictItemData(MT.Leather, U));
         OM.data(ST.make(MOD_WM, "fur", 1), new OreDictItemData(MT.Leather, U));
-        OM.data(ST.make(MOD_WM, "armadillo_shell", 1), new OreDictItemData(MT.Bone, U9));
+        OM.data(ST.make(MOD_WM, "armadillo_shell", 1), new OreDictItemData(MT.Bone, U * 5));
         OM.data(ST.make(MOD_WM, "thick_bone", 1), new OreDictItemData(MT.Bone, U * 10));
         OM.data(ST.make(MOD_WM, "venison", 1), new OreDictItemData(MT.MeatRaw, U * 3, MT.Bone, U2));
         OM.data(ST.make(MOD_WM, "infected_flesh", 1), new OreDictItemData(MT.MeatRotten, U * 2, MT.Bone, U9));
