@@ -74,7 +74,7 @@ public class EventHandler {
                 SCR = F;
                 drop(aDead, aDrops, aLooting, aBurn, ST.make(MD.HaC, "jellyfish", 1));
             } else if ("EntityMouse".equalsIgnoreCase(aClass)) {
-                drop(aDead, aDrops, aLooting, aBurn, IL.Food_Cheese.get(1));
+                drop(aDead, aDrops, aLooting, aBurn, IL.Food_Cheese_Sliced.get(1));
             } else if ("EntityWMOcelot".equalsIgnoreCase(aClass)) {
                 DOG = T;
             } else if ("EntityWMWolf".equalsIgnoreCase(aClass)) {
