@@ -12,16 +12,18 @@ dependencies {
     compileOnly 'com.github.GTNewHorizons:CodeChickenLib:1.1.5.6:dev'
     compileOnly 'com.github.GTNewHorizons:CodeChickenCore:1.1.7:dev'
     //compile "codechicken:NotEnoughItems:1.7.10-1.0.5.120:dev"
-    compileOnly "com.github.GTNewHorizons:NotEnoughItems:2.3.7-GTNH:dev"
+    compile "com.github.GTNewHorizons:NotEnoughItems:2.3.7-GTNH:dev"
     //compileOnly "appeng:appliedenergistics2:rv3-beta-6:dev"
     compileOnly "com.github.GTNewHorizons:Applied-Energistics-2-Unofficial:rv3-beta-100-GTNH:dev"
     compileOnly "applecore:AppleCore:1.7.10-3.1.1:deobf"
-    compileOnly "ic2:IC2Classic:1.2.1.8:dev"
+    //compile "ic2:IC2Classic:1.2.1.8:dev"
+    compile("net.industrial-craft:industrialcraft-2:2.2.828-experimental:dev")
     compileOnly "micdoodle8.mods:GalacticraftCore:1.7-3.0.12.504:Dev"
     compileOnly "micdoodle8.mods:MicdoodleCore:1.7-3.0.12.504:Dev"
     compileOnly "openblocks:OpenBlocks:1.7.10-1.6-1.7.10:deobf"
     compileOnly "openmods:OpenModsLib:1.7.10-0.10:deobf"
     compileOnly "vazkii.botania:Botania:r1.8-250:deobf"
+
 
     // We do a little bit of testing
     //compile "curse.maven:wild-mobs-mod-255711:2727879"

@@ -7,3 +7,20 @@ Extra Superconductor recipes for PUV cable and stuff
 
 add an Ore Drilling Rig that Drills ores from world
 add a Fluid Drilling Rig that Drills fluids from world/bedrock
+
+Tiers for machines
+T: ULV     LV       MV       HV        EV        IV      LuV       ZPM         UV      PUV1
+
+
+GS:
+ Do SuperConductor recipes
+
+Component Assembly (Basically backporting the old Assembler a 9 slot input and 1 fluid input machine)
+have all components have recipe in it
+add advanced recipe for items to it
+
+Maybe make it run of KU or just EU?
+
+
+
+
