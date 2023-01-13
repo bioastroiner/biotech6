@@ -23,9 +23,9 @@ public final class BioTech6Mod extends gregapi.api.Abstract_Mod {
     public static final String MOD_ID = Tags.MODID;
     public static final String MOD_NAME = Tags.MODNAME;
     public static final String VERSION = Tags.VERSION;
-    public static ModData MOD_DATA = new ModData(MOD_ID, MOD_NAME);
-
+    public static ModData MOD_BT6 = new ModData(MOD_ID, MOD_NAME);
     public static final ModData MOD_WM = new ModData("wildmobsmod", "Wild Mobs");
+    public static final Logger LOG = LogManager.getLogger(MOD_ID);
 
     @Mod.Instance
     public static BioTech6Mod INSTANCE;
@@ -49,6 +49,18 @@ public final class BioTech6Mod extends gregapi.api.Abstract_Mod {
     @Override
     public String getModNameForLog() {
         return MOD_ID + "_LOGGER";
+    }
+
+    public static void log(String message){
+        LOG.log(Level.DEBUG, "BioTech_Mod: "+message);
+    }
+
+    public static void out(String message){
+        log("BioTech_Mod: "+message);
+    }
+
+    public static void err(String message){
+        LOG.log(Level.ERROR,"BioTech_Mod: "+message);
     }
 
     @Override
@@ -94,13 +106,33 @@ public final class BioTech6Mod extends gregapi.api.Abstract_Mod {
 
     @Override
     public void onModPreInit2(FMLPreInitializationEvent aEvent) {
-        OUT.println("BioTech_Mod: PreInit");
+        out("PreInit");
         EventHandler.init();
         //MinecraftForge.EVENT_BUS.register(this);
         //MinecraftForge.EVENT_BUS.register(EventHandler.class);
         //new Compat_Recipes_WildMobs(new ModData("wildmobsmod", "Wild Mobs"), this);
 
-//        new OreDictListenerEvent_Names() {
+//        ModData MOD_GS = new ModData("GraviSuite", "Gravitation Suite");
+//        ItemStack ic2_glass_fiber = ST.make(MD.IC2,"itemCable",1,9);
+//        CR.remove(ic2_glass_fiber);
+//        CR.remove(ST.make(MOD_GS,"itemSimpleItem",1,1));
+//        RM.Nanofab.addRecipe2(true,16,100,ST.make(MD.GT,"gt.multitileentity",1,24900), OP.dust.mat(EnergiumRed,2),ic2_glass_fiber );
+//        RM.Nanofab.addRecipe2(true,16,100,ic2_glass_fiber, OP.wireGt01.mat(YttriumBariumCuprate,1),ST.make(MOD_GS,"itemSimpleItem",1,1) ); // TODO fix YttierumBariumWire
+
+        new OreDictListenerEvent_Names() {
+            @Override
+            public void addAllListeners() {
+                addListener("gemCertusQuartz", new IOreDictListenerEvent() {
+                    @Override
+                    public void onOreRegistration(OreDictRegistrationContainer aEvent) {
+                        RM.ae_grinder(10, aEvent.mStack, OP.dust.mat(MT.CertusQuartz, 1));
+                        MetaTileEntities.Assembler.addRecipeX(CS.T, 16, 100 ,new ItemStack[]{aEvent.mStack, OM.dust(aEvent.mMaterial)},OM.dust(aEvent.mMaterial)); //TODO remove
+                        out("CHECK" + " X " + aEvent.mOreDictName);
+                    }
+                });
+            }
+        };
+//        new OreDictListenerItem_Rocks(){
 //            @Override
 //            public void addAllListeners() {
 ////                addListener("gemCertusQuartz", new IOreDictListenerEvent() {
@@ -193,12 +225,12 @@ public final class BioTech6Mod extends gregapi.api.Abstract_Mod {
 
     @Override
     public void onModInit2(FMLInitializationEvent aEvent) {
-        OUT.println("BioTech_Mod: Init");
+        out("BioTech_Mod: Init");
     }
 
     @Override
     public void onModPostInit2(FMLPostInitializationEvent aEvent) {
-        OUT.println("BioTech_Mod: PostInit");
+        out("PostInit");
     }
 
     @Override
