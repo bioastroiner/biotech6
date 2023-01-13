@@ -3,19 +3,28 @@ package biotech;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.*;
+import gravisuite.GraviSuite;
 import gregapi.api.Abstract_Proxy;
 import gregapi.code.ModData;
-import gregapi.data.CS;
-import gregapi.data.FL;
-import gregapi.data.MT;
-import gregapi.data.RM;
-import gregapi.oredict.OreDictItemData;
+import gregapi.data.*;
+import gregapi.oredict.OreDictManager;
+import gregapi.oredict.OreDictMaterial;
+import gregapi.oredict.OreDictPrefix;
+import gregapi.oredict.event.IOreDictListenerEvent;
+import gregapi.oredict.event.OreDictListenerEvent_Names;
+import gregapi.oredict.listeners.OreDictListenerItem_Rocks;
+import gregapi.recipes.Recipe;
+import gregapi.util.CR;
 import gregapi.util.OM;
 import gregapi.util.ST;
-import net.minecraft.init.Items;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-import static gregapi.data.CS.*;
+import static gregapi.data.CS.NI;
+import static gregapi.data.MT.*;
 
 @Mod(modid = BioTech6Mod.MOD_ID, name = BioTech6Mod.MOD_NAME, version = BioTech6Mod.VERSION, dependencies = "required-after:gregapi_post")
 public final class BioTech6Mod extends gregapi.api.Abstract_Mod {
@@ -108,9 +117,8 @@ public final class BioTech6Mod extends gregapi.api.Abstract_Mod {
     public void onModPreInit2(FMLPreInitializationEvent aEvent) {
         out("PreInit");
         EventHandler.init();
-        //MinecraftForge.EVENT_BUS.register(this);
-        //MinecraftForge.EVENT_BUS.register(EventHandler.class);
-        //new Compat_Recipes_WildMobs(new ModData("wildmobsmod", "Wild Mobs"), this);
+        MetaTileEntities.init();
+        WildMobs_Compat.init();
 
 //        ModData MOD_GS = new ModData("GraviSuite", "Gravitation Suite");
 //        ItemStack ic2_glass_fiber = ST.make(MD.IC2,"itemCable",1,9);
@@ -144,83 +152,6 @@ public final class BioTech6Mod extends gregapi.api.Abstract_Mod {
 //            }
 //        };
 
-
-        /************************************************************************************************************************/
-
-        CS.FoodsGT.put(ST.make(MOD_WM, "venison", 1), 0, 0, 0, 0, 12);
-        CS.FoodsGT.put(ST.make(MOD_WM, "cooked_venison", 1), 0, 0, 0, 10, 12);
-        CS.FoodsGT.put(ST.make(MOD_WM, "calamari", 1), 0, 0, 0, 0, 12);
-        CS.FoodsGT.put(ST.make(MOD_WM, "cooked_calamari", 1), 0, 0, 0, 10, 12);
-        CS.FoodsGT.put(ST.make(MOD_WM, "bison_meat", 1), 0, 0, 0, 0, 12);
-        CS.FoodsGT.put(ST.make(MOD_WM, "cooked_bison_meat", 1), 0, 0, 0, 10, 12);
-        CS.FoodsGT.put(ST.make(MOD_WM, "chevon", 1), 0, 0, 0, 0, 12);
-        CS.FoodsGT.put(ST.make(MOD_WM, "cooked_chevon", 1), 0, 0, 0, 10, 12);
-        CS.FoodsGT.put(ST.make(MOD_WM, "goose", 1), 0, 0, 0, 0, 12);
-        CS.FoodsGT.put(ST.make(MOD_WM, "cooked_goose", 1), 0, 0, 0, 10, 12);
-        CS.FoodsGT.put(ST.make(MOD_WM, "mouse", 1), 0, 0, 0, 0, 12);
-        CS.FoodsGT.put(ST.make(MOD_WM, "cooked_mouse", 1), 0, 0, 0, 10, 12);
-
-        OUT.println("BioTech_Mod: Registring WildMobs OreDicts.");
-        OM.reg(ST.make(MOD_WM, "venison", 1), "foodVensionraw");
-        OM.reg(ST.make(MOD_WM, "venison", 1), "listAllvensionraw");
-        OM.reg(ST.make(MOD_WM, "chevon", 1), "listAllmuttonraw");
-        OM.reg(ST.make(MOD_WM, "cooked_venison", 1), "foodVensioncooked");
-        OM.reg(ST.make(MOD_WM, "cooked_venison", 1), "listAllvensioncooked");
-        OM.reg(ST.make(MOD_WM, "cooked_chevon", 1), "listAllmuttoncooked");
-
-        OM.reg(ST.make(MOD_WM, "calamari", 1), "foodCalamariraw");
-        OM.reg(ST.make(MOD_WM, "calamari", 1), "listAllcalamariraw");
-        OM.reg(ST.make(MOD_WM, "cooked_calamari", 1), "foodCalamaricooked");
-        OM.reg(ST.make(MOD_WM, "cooked_calamari", 1), "listAllcalamaricooked");
-
-        OM.reg(ST.make(MOD_WM, "bison_meat", 1), "listAllbeef");
-        OM.reg(ST.make(MOD_WM, "cooked_bison_meat", 1), "listAllcookedbeef"); // TODO: check this
-        OM.reg(ST.make(MOD_WM, "bison_meat", 1), "listAllbison");
-        OM.reg(ST.make(MOD_WM, "cooked_bison_meat", 1), "listAllcookedbison");
-
-        OM.reg(ST.make(MOD_WM, "bison_meat", 1), "listAllmeatraw");
-        OM.reg(ST.make(MOD_WM, "calamari", 1), "listAllmeatraw");
-        OM.reg(ST.make(MOD_WM, "chevon", 1), "listAllmeatraw");
-        OM.reg(ST.make(MOD_WM, "goose", 1), "listAllmeatraw");
-        OM.reg(ST.make(MOD_WM, "mouse", 1), "listAllmeatraw");
-        OM.reg(ST.make(MOD_WM, "venison", 1), "listAllmeatraw");
-
-        OM.reg(ST.make(MOD_WM, "cooked_bison_meat", 1), "listAllmeatcooked");
-        OM.reg(ST.make(MOD_WM, "cooked_calamari", 1), "listAllmeatcooked");
-        OM.reg(ST.make(MOD_WM, "cooked_chevon", 1), "listAllmeatcooked");
-        OM.reg(ST.make(MOD_WM, "cooked_goose", 1), "listAllmeatcooked");
-        OM.reg(ST.make(MOD_WM, "cooked_mouse", 1), "listAllmeatcooked");
-        OM.reg(ST.make(MOD_WM, "cooked_venison", 1), "listAllmeatcooked");
-
-        OUT.println("BioTech_Mod: Recipes for WildMobs Items.");
-        RM.Mixer.addRecipe1(T, 16, 16, ST.make(MOD_WM, "fur", 1), FL.Water.make(1000), NF, ST.make(Items.leather, 1, W));
-        RM.Mixer.addRecipe1(T, 16, 16, ST.make(MOD_WM, "bison_leather", 1), FL.Water.make(1000), NF, ST.make(Items.leather, 1, W));
-        RM.Mixer.addRecipe1(T, 16, 16, ST.make(MOD_WM, "fur", 1), FL.Water.make(1000), NF, ST.make(Items.leather, 1, W));
-        RM.Generifier.addRecipe1(T, 16, 16, ST.make(MOD_WM, "infected_flesh", 1), NF, NF, ST.make(Items.rotten_flesh, 1, W));
-
-        OM.data(ST.make(MOD_WM, "bison_leather", 1), new OreDictItemData(MT.Leather, U));
-        OM.data(ST.make(MOD_WM, "fur", 1), new OreDictItemData(MT.Leather, U));
-        OM.data(ST.make(MOD_WM, "armadillo_shell", 1), new OreDictItemData(MT.Bone, U * 5));
-        OM.data(ST.make(MOD_WM, "thick_bone", 1), new OreDictItemData(MT.Bone, U * 10));
-        OM.data(ST.make(MOD_WM, "venison", 1), new OreDictItemData(MT.MeatRaw, U * 3, MT.Bone, U2));
-        OM.data(ST.make(MOD_WM, "infected_flesh", 1), new OreDictItemData(MT.MeatRotten, U * 2, MT.Bone, U9));
-
-        //OM.data(ST.make(WM, "slimeDrop", 1), new OreDictItemData(MT.SlimyBone, U * 10));
-
-        OM.data(ST.make(MOD_WM, "cooked_bison_meat", 1), new OreDictItemData(MT.MeatCooked, U * 4, MT.Bone, U4));
-        OM.data(ST.make(MOD_WM, "cooked_calamari", 1), new OreDictItemData(MT.FishCooked, U * 2));
-        OM.data(ST.make(MOD_WM, "cooked_chevon", 1), new OreDictItemData(MT.MeatCooked, U * 3, MT.Bone, U9));
-        OM.data(ST.make(MOD_WM, "cooked_goose", 1), new OreDictItemData(MT.MeatCooked, U * 3, MT.Bone, U9));
-        OM.data(ST.make(MOD_WM, "cooked_mouse", 1), new OreDictItemData(MT.MeatCooked, U * 1, MT.Bone, U9));
-        OM.data(ST.make(MOD_WM, "cooked_venison", 1), new OreDictItemData(MT.MeatCooked, U * 3, MT.Bone, U9));
-
-        OM.data(ST.make(MOD_WM, "bison_meat", 1), new OreDictItemData(MT.MeatRaw, U * 3, MT.Bone, U4));
-        OM.data(ST.make(MOD_WM, "calamari", 1), new OreDictItemData(MT.FishRaw, U * 2));
-        OM.data(ST.make(MOD_WM, "chevon", 1), new OreDictItemData(MT.MeatRaw, U * 3, MT.Bone, U9));
-        OM.data(ST.make(MOD_WM, "goose", 1), new OreDictItemData(MT.MeatRaw, U * 3, MT.Bone, U9));
-        OM.data(ST.make(MOD_WM, "mouse", 1), new OreDictItemData(MT.MeatRaw, U2, MT.Bone, U9));
-        OM.data(ST.make(MOD_WM, "venison", 1), new OreDictItemData(MT.MeatRaw, U * 3, MT.Bone, U9));
-        /************************************************************************************************************************/
     }
 
     @Override
